@@ -22,7 +22,7 @@ async function main() {
   // verify true
   const testSuccessVerify = () => {
     const leaf = keccak256("0x70997970C51812dc3A010C7d01b50e0d17dc79C8");
-    const proof = merkleTree.getProof(leaf);
+    const proof = merkleTree.getHexProof(leaf);
     console.log("proof: ", proof);
     console.log("verify test true: ", merkleTree.verify(proof, leaf, rootHash)); // true
   };
@@ -31,7 +31,7 @@ async function main() {
   // verify false
   const testFailureVerify = () => {
     const leaf = keccak256("hoge");
-    const proof = merkleTree.getProof(leaf);
+    const proof = merkleTree.getHexProof(leaf);
     console.log("verify test true: ", merkleTree.verify(proof, leaf, rootHash)); // false
   };
   testFailureVerify();
